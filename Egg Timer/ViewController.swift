@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import AVFoundation
 
 class ViewController: UIViewController {
     
@@ -19,21 +20,36 @@ class ViewController: UIViewController {
     
     var totalTime = 0.0
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    var player : AVAudioPlayer!
+    
+    func playSound(_ audioName: String) {
+        let url = Bundle.main.url(forResource: audioName, withExtension: "mp3")
+        player = try!AVAudioPlayer(contentsOf: url!)
+        player.play()
     }
     
     @IBAction func buttonPressed(_ sender: UIButton) {
         
         totalTime = eggTimes[sender.currentTitle!]!
+        
+        playSound("boiling")
+        
         timer.invalidate()
         
+        sender.alpha = 0.5
+        
+        DispatchQueue.main.asyncAfter(deadline: .now() + 0.2 ) {
+            sender.alpha = 1.0
+        }
+        
         progressBar.progress = 0.0
+        
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:  #selector(updateCounter), userInfo: nil, repeats: true)
         
     }
     @objc func updateCounter() {
+        
         if progressBar.progress < 1.0 {
             progressBar.progress += (1.0/Float(totalTime))
             print("\(progressBar.progress)")
@@ -42,13 +58,13 @@ class ViewController: UIViewController {
             questionLabel.text = "Done!"
             DispatchQueue.main.asyncAfter(deadline: .now() + 1.0) {
                 self.questionLabel.text = "How do you like your eggs?"
-                
             }
             timer.invalidate()
-            
+            playSound("alarmbell")
         }
         
     }
+    
 }
 
 

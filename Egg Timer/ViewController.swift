@@ -44,6 +44,8 @@ class ViewController: UIViewController {
         
         progressBar.progress = 0.0
         
+        questionLabel.text = "Cooking..."
+        
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:  #selector(updateCounter), userInfo: nil, repeats: true)
         

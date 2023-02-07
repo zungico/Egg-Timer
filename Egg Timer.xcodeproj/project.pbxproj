@@ -9,10 +9,12 @@
 /* Begin PBXBuildFile section */
 		808AAE372985576300B1097F /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808AAE362985576300B1097F /* AppDelegate.swift */; };
 		808AAE392985576300B1097F /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808AAE382985576300B1097F /* SceneDelegate.swift */; };
-		808AAE3B2985576300B1097F /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808AAE3A2985576300B1097F /* ViewController.swift */; };
+		808AAE3B2985576300B1097F /* CookViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 808AAE3A2985576300B1097F /* CookViewController.swift */; };
 		808AAE3E2985576300B1097F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808AAE3C2985576300B1097F /* Main.storyboard */; };
 		808AAE402985576500B1097F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 808AAE3F2985576500B1097F /* Assets.xcassets */; };
 		808AAE432985576500B1097F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 808AAE412985576500B1097F /* LaunchScreen.storyboard */; };
+		80C90D7C2992B9FF0002C943 /* EggBrain.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C90D7B2992B9FF0002C943 /* EggBrain.swift */; };
+		80C90D7F2992BE8E0002C943 /* ResultViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 80C90D7E2992BE8E0002C943 /* ResultViewController.swift */; };
 		80F001FB2985A0B400241799 /* boiling.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 80F001FA2985A0B400241799 /* boiling.mp3 */; };
 		80F001FF2989635E00241799 /* alarmbell.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 80F001FE2989635E00241799 /* alarmbell.mp3 */; };
 /* End PBXBuildFile section */
@@ -21,11 +23,13 @@
 		808AAE332985576300B1097F /* Egg Timer.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Egg Timer.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		808AAE362985576300B1097F /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		808AAE382985576300B1097F /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
-		808AAE3A2985576300B1097F /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		808AAE3A2985576300B1097F /* CookViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CookViewController.swift; sourceTree = "<group>"; };
 		808AAE3D2985576300B1097F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		808AAE3F2985576500B1097F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		808AAE422985576500B1097F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		808AAE442985576500B1097F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		80C90D7B2992B9FF0002C943 /* EggBrain.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EggBrain.swift; sourceTree = "<group>"; };
+		80C90D7E2992BE8E0002C943 /* ResultViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResultViewController.swift; sourceTree = "<group>"; };
 		80F001FA2985A0B400241799 /* boiling.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = boiling.mp3; sourceTree = "<group>"; };
 		80F001FE2989635E00241799 /* alarmbell.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = alarmbell.mp3; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -62,8 +66,9 @@
 			children = (
 				808AAE362985576300B1097F /* AppDelegate.swift */,
 				808AAE382985576300B1097F /* SceneDelegate.swift */,
-				808AAE3A2985576300B1097F /* ViewController.swift */,
-				808AAE3C2985576300B1097F /* Main.storyboard */,
+				80C90D7D2992BA060002C943 /* Main */,
+				80C90D792992B67A0002C943 /* View */,
+				80C90D7A2992B6800002C943 /* Controller */,
 				808AAE3F2985576500B1097F /* Assets.xcassets */,
 				808AAE412985576500B1097F /* LaunchScreen.storyboard */,
 				808AAE442985576500B1097F /* Info.plist */,
@@ -71,6 +76,31 @@
 				80F001FE2989635E00241799 /* alarmbell.mp3 */,
 			);
 			path = "Egg Timer";
+			sourceTree = "<group>";
+		};
+		80C90D792992B67A0002C943 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				808AAE3C2985576300B1097F /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		80C90D7A2992B6800002C943 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				808AAE3A2985576300B1097F /* CookViewController.swift */,
+				80C90D7E2992BE8E0002C943 /* ResultViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		80C90D7D2992BA060002C943 /* Main */ = {
+			isa = PBXGroup;
+			children = (
+				80C90D7B2992B9FF0002C943 /* EggBrain.swift */,
+			);
+			path = Main;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -146,7 +176,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				808AAE3B2985576300B1097F /* ViewController.swift in Sources */,
+				80C90D7F2992BE8E0002C943 /* ResultViewController.swift in Sources */,
+				80C90D7C2992B9FF0002C943 /* EggBrain.swift in Sources */,
+				808AAE3B2985576300B1097F /* CookViewController.swift in Sources */,
 				808AAE372985576300B1097F /* AppDelegate.swift in Sources */,
 				808AAE392985576300B1097F /* SceneDelegate.swift in Sources */,
 			);

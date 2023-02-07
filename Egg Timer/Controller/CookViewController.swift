@@ -8,10 +8,11 @@
 import UIKit
 import AVFoundation
 
-class ViewController: UIViewController {
+class CookViewController: UIViewController {
+    
+    var eggBrain = EggBrain()
     
     @IBOutlet weak var progressBar: UIProgressView!
-    
     @IBOutlet weak var questionLabel: UILabel!
     
     let eggTimes = ["Soft":3.0, "Medium":5.0, "Hard":7.0]
@@ -20,19 +21,11 @@ class ViewController: UIViewController {
     
     var totalTime = 0.0
     
-    var player : AVAudioPlayer!
-    
-    func playSound(_ audioName: String) {
-        let url = Bundle.main.url(forResource: audioName, withExtension: "mp3")
-        player = try!AVAudioPlayer(contentsOf: url!)
-        player.play()
-    }
-    
     @IBAction func buttonPressed(_ sender: UIButton) {
         
         totalTime = eggTimes[sender.currentTitle!]!
         
-        playSound("boiling")
+        eggBrain.playSound("boiling")
         
         timer.invalidate()
         
@@ -49,12 +42,13 @@ class ViewController: UIViewController {
         
         timer = Timer.scheduledTimer(timeInterval: 1.0, target: self, selector:  #selector(updateCounter), userInfo: nil, repeats: true)
         
+        
+        
     }
     @objc func updateCounter() {
         
         if progressBar.progress < 1.0 {
             progressBar.progress += (1.0/Float(totalTime))
-            print("\(progressBar.progress)")
             
         } else {
             questionLabel.text = "Done!"
@@ -62,11 +56,18 @@ class ViewController: UIViewController {
                 self.questionLabel.text = "How do you like your eggs?"
             }
             timer.invalidate()
-            playSound("alarmbell")
+            eggBrain.playSound("alarmbell")
+            performSegue(withIdentifier: "goToResult", sender: self)
         }
         
     }
     
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "goToResult" {
+            
+        }
+    }
 }
 
 
